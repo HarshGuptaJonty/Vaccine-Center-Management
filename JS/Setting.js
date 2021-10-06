@@ -24,6 +24,7 @@ firebaseApp.auth().onAuthStateChanged((user) => {
 });
 async function updateList() {
     centreList = [];
+    centreList2 = [];
     var ID = 0;
     await database.ref(email + "/CentreList").once("value", function (snapshot) {
         $("#centretable tr").remove();

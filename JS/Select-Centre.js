@@ -71,6 +71,7 @@ function addNewCentre() {
         document.getElementById("error").innerHTML = "";
         document.getElementById("phone-61be").value = "";
         centreList.push(newName);
+        centreList2.push(newName.toUpperCase());
         database.ref(email + "/CentreList").set(centreList);
         let option = document.createElement("option");
         option.value = newName;
