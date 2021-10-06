@@ -19,7 +19,7 @@ async function uploadVaccine() {
     if(vname.includes("#") || vname.includes("$") || vname.includes("[") || vname.includes("]") || vname.includes("."))
         document.getElementById("error").innerHTML = "Name cant include the following characters: '#', '$', '[', ']', '.'";
     else if (vname.length > 30)
-        document.getElementById("error1").innerHTML = "Name too long.";
+        document.getElementById("error").innerHTML = "Name too long.";
     else if (duration != null && duration < 0)
         document.getElementById("error").innerHTML = "Duration cannot be negative";
     else if (doseType === "")

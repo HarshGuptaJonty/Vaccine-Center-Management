@@ -1,6 +1,7 @@
 var email;
 var select = document.getElementById("select-9c1c");
 var activeCentre;
+var searched = false;
 firebaseApp.auth().onAuthStateChanged((user) => {
     email = user.email;
     email = email.replaceAll(".", "");
@@ -48,11 +49,11 @@ async function getAllData() {
     clientarr = [];
     ID = 0;
     $("#clientTable tr").remove();
-    var date = new Date().toISOString().slice(0,10);
+    var date = new Date().toISOString().slice(0, 10);
     $('#date-f864').attr('min', date);
-    var date2=new Date();
-    date2.setDate(date2.getDate()+1);
-    $('#date-2b92').attr('min', date2.toISOString().slice(0,10));
+    var date2 = new Date();
+    date2.setDate(date2.getDate() + 1);
+    $('#date-2b92').attr('min', date2.toISOString().slice(0, 10));
     console.log("Working on: " + email + "/" + activeCentre);
     await database.ref(email + "/" + activeCentre + "/ClientList").once("value", function (allrecord) {
         allrecord.forEach(function (currentrecord) {
@@ -124,22 +125,27 @@ function removeButton() {
 
 function updateButton() {
     updateClient();
-    document.getElementById("crossButton").click();
 }
 
 function deleteButton() {
-    let phone = document.getElementById("phone-0eea").value;
-    let nname = document.getElementById("name-22b9").value;
-    if(phone=="" || nname=="")
-        document.getElementById("error").innerHTML="Nothing selected to delete, please select a client first.";
-    else if (confirm("Remove " + nname + " permanently?")) {
-        database.ref(email + "/" + activeCentre + "/ClientList/" + phone).remove();
-        alert("Client Removed");
-        getAllData()
-        document.getElementById("crossButton").click();
+    if (!searched)
+        document.getElementById("error").innerHTML = "Please search a client first.";
+    else {
+        let phone = document.getElementById("phone-0eea").value;
+        let nname = document.getElementById("name-22b9").value;
+        if (phone == "" || nname == "")
+            document.getElementById("error").innerHTML = "Nothing selected to delete, please select a client first.";
+        else if (confirm("Remove " + nname + " permanently?")) {
+            database.ref(email + "/" + activeCentre + "/ClientList/" + phone).remove();
+            alert("Client Removed");
+            getAllData()
+            document.getElementById("crossButton").click();
+        }
+        else
+            document.getElementById("error").value = "Deletion aborted";
+        searched = false;
+
     }
-    else
-        document.getElementById("error").value = "Deletion aborted";
 }
 async function getVaccineType(vaccineName) {
     var value;
@@ -160,6 +166,7 @@ function searchForEdit() {
     else if (searchText > clientarr.length || searchText <= 0)
         document.getElementById("error").innerHTML = "Invalid Client ID";
     else {
+        searched = true;
         document.getElementById("error").innerHTML = "";
         var client = clientarr[searchText - 1];
         document.getElementById("name-22b9").value = client.Name;
@@ -189,7 +196,7 @@ function searchForEdit() {
                 var doseType = data.val().Dose;
                 if (doseType == "Single Dose") {
                     document.getElementById("date-2b92").readOnly = true;
-		    $('#select-9c1c').attr("disabled", true);
+                    $('#select-9c1c').attr("disabled", true);
                     console.log("They got: " + doseType + " From: " + client.Vaccine);
                 } else {
                     document.getElementById("date-2b92").readOnly = false;
@@ -197,13 +204,6 @@ function searchForEdit() {
                 }
             }
         });
-        // var doseTye=getVaccineType(client.Vaccine);
-        // if (doseTye == "Single Dose") {
-        //     document.getElementById("date-2b92").readOnly = true;
-        //     console.log("They got: " + doseTye + " From: " + client.Vaccine);
-        // } else {
-        //     console.log("They got: " + doseTye + " From: " + client.Vaccine);
-        // }
         let found = false;
         for (i = 0; i < vaccinearr.length; ++i)
             if (vaccinearr[i] == client.Vaccine)
@@ -216,30 +216,36 @@ function searchForEdit() {
 }
 
 function updateClient() {
-    let nname = document.getElementById("name-22b9").value;
-    let phone = document.getElementById("phone-0eea").value;
-    let first = document.getElementById("date-f864").value;
-    let second = document.getElementById("date-2b92").value;
-    let vaccine = document.getElementById("select-9c1c").value;
-    if(nname.length>30)
-        document.getElementById("error").innerHTML = "Name too long.";
-    if (first.length == 0)
-        first = "No Data";
-    if (second.length == 0)
-        second = "No Data";
-    if (nname == "" || phone == "" || vaccine == "") {
-    } else {
-        document.getElementById("error").innerHTML = "";
-        console.log(nname, phone, first, second, vaccine);
-        database.ref(email + "/" + activeCentre + "/ClientList/" + phone).update({
-            Name: nname,
-            Phone: phone,
-            First: first,
-            Second: second,
-            Vaccine: vaccine
-        });
-        getAllData();
-        alert("Details Updated");
+    if (!searched)
+        document.getElementById("error").innerHTML = "Please search a client first.";
+    else {
+        let nname = document.getElementById("name-22b9").value;
+        let phone = document.getElementById("phone-0eea").value;
+        let first = document.getElementById("date-f864").value;
+        let second = document.getElementById("date-2b92").value;
+        let vaccine = document.getElementById("select-9c1c").value;
+        if (nname.length > 30)
+            document.getElementById("error").innerHTML = "Name too long.";
+        if (first.length == 0)
+            first = "No Data";
+        if (second.length == 0)
+            second = "No Data";
+        if (nname == "" || phone == "" || vaccine == "") {
+        } else {
+            document.getElementById("error").innerHTML = "";
+            console.log(nname, phone, first, second, vaccine);
+            database.ref(email + "/" + activeCentre + "/ClientList/" + phone).update({
+                Name: nname,
+                Phone: phone,
+                First: first,
+                Second: second,
+                Vaccine: vaccine
+            });
+            getAllData();
+            alert("Details Updated");
+            document.getElementById("crossButton").click();
+            searched = false;
+        }
     }
 }
 document.getElementById("searchForm").addEventListener("submit", (event) => {

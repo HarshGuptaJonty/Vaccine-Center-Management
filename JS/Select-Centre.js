@@ -11,6 +11,7 @@ firebaseApp.auth().onAuthStateChanged((user) => {
     });
 });
 var centreList = [];
+var centreList2 = [];
 async function getAllData() {
     console.log("Working on: " + email+"/" + activeCentre );
     $("#select-f76e").empty();
@@ -19,6 +20,7 @@ async function getAllData() {
         if (name != null){
             name.forEach(element => {
                 centreList.push(element);
+                centreList2.push(element.toUpperCase());
                 let option = document.createElement("option");
                 option.value = element;
                 option.text = element;
@@ -53,16 +55,18 @@ document.getElementById("logout").addEventListener("click", () => {
     });
 });
 function addNewCentre() {
-    console.log("New Project created successfully");
     var newName = document.getElementById("phone-61be").value;
     newName=newName.trim();
     if (newName == "")
         document.getElementById("error2").innerHTML = "Please enter a name.";
+    else if(newName.includes("#") || newName.includes("$") || newName.includes("[") || newName.includes("]") || newName.includes("."))
+        document.getElementById("error2").innerHTML = "Name cant include the following characters: '#', '$', '[', ']', '.'";
     else if (newName.length>30)
         document.getElementById("error2").innerHTML = "Name Too Long.";
-    else if (centreList.includes(newName))
+    else if (centreList2.includes(newName.toUpperCase()))
         document.getElementById("error2").innerHTML = "A center of same already exists.";
     else {
+        console.log("New Project created successfully");
         document.getElementById("error2").innerHTML = "";
         document.getElementById("error").innerHTML = "";
         document.getElementById("phone-61be").value = "";

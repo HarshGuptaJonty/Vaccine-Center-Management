@@ -1,6 +1,7 @@
 var email;
 var activeCentre;
 var centerList = [];
+var searched = false;
 firebaseApp.auth().onAuthStateChanged((user) => {
     email = user.email;
     email = email.replaceAll(".", "");
@@ -94,27 +95,37 @@ function removeButton() {
     document.getElementById("edit").click();
 }
 function updateButton() {
-    let vname = document.getElementById("name-4542").value.trim();
-    let duration = document.getElementById("text-59c1").value.trim();
-    // let dose = document.getElementById("select-d8f6").value;
-    database.ref(email + "/" + activeCentre + "/VaccineList/" + vname).update({
-        Duration: duration
-    });
-    getAllData();
-    document.getElementById("crossButton").click();
-    alert("Details Updated");
+    if (!searched)
+        alert("Please select a vaccine from the list to update it.");
+    else {
+        let vname = document.getElementById("name-4542").value.trim();
+        let duration = document.getElementById("text-59c1").value.trim();
+        // let dose = document.getElementById("select-d8f6").value;
+        database.ref(email + "/" + activeCentre + "/VaccineList/" + vname).update({
+            Duration: duration
+        });
+        getAllData();
+        document.getElementById("crossButton").click();
+        alert("Details Updated");
+        searched = false;
+    }
 }
 function deleteButton() {
-    let vname = document.getElementById("name-4542").value.trim();
-    if (vname == "")
-        document.getElementById("error").value = "No vaccine selected, please select the vaccine first.";
-    else if (confirm("Remove " + vname + " permanently?"))
-        database.ref(email + "/" + activeCentre + "/VaccineList/" + vname).remove();
-    else
-        document.getElementById("error").value = "Deletion aborted";
-    document.getElementById("crossButton").click();
-    // alert("Vaccine Removed");
-    getAllData();
+    if (!searched)
+        alert("Please select a vaccine from the list to remove it.");
+    else {
+        let vname = document.getElementById("name-4542").value.trim();
+        if (vname == "")
+            document.getElementById("error").value = "No vaccine selected, please select the vaccine first.";
+        else if (confirm("Remove " + vname + " permanently?"))
+            database.ref(email + "/" + activeCentre + "/VaccineList/" + vname).remove();
+        else
+            document.getElementById("error").value = "Deletion aborted";
+        document.getElementById("crossButton").click();
+        // alert("Vaccine Removed");
+        getAllData();
+        searched = false;
+    }
 }
 function searchForEdit() {
     var searchText = document.getElementById("name-4543").value.trim();
@@ -124,6 +135,7 @@ function searchForEdit() {
     else if (searchText > vaccinearr.length || searchText <= 0)
         document.getElementById("error").innerHTML = "Invalid Vaccine ID";
     else {
+        searched = true;
         document.getElementById("error").innerHTML = "";
         var vaccine = vaccinearr[searchText - 1];
         document.getElementById("name-4542").value = vaccine.Name;
@@ -172,7 +184,7 @@ async function uploadVaccine() {
     const vname = document.getElementById("name-79a0").value.trim();
     const doseType = document.getElementById("select-ddf4").value.trim();
     const duration = document.getElementById("text-81b5").value.trim();
-    if(vname.includes("#") || vname.includes("$") || vname.includes("[") || vname.includes("]") || vname.includes("."))
+    if (vname.includes("#") || vname.includes("$") || vname.includes("[") || vname.includes("]") || vname.includes("."))
         document.getElementById("error1").innerHTML = "Name cant include the following characters: '#', '$', '[', ']', '.'";
     else if (vname.length > 30)
         document.getElementById("error1").innerHTML = "Name too long.";

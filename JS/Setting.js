@@ -3,6 +3,7 @@ var toggel = 0;
 var error = document.getElementById("error");
 var oldName;
 var centreList = [];
+var centreList2 = [];
 var activeCentre;
 auth.onAuthStateChanged((user) => {
     if (!user)
@@ -29,6 +30,7 @@ async function updateList() {
         var name = snapshot.val();
         name.forEach(element => {
             centreList.push(element);
+            centreList2.push(element.toUpperCase());
             // console.log(element);
             addItemToTable(element, ++ID);
         });
@@ -113,6 +115,10 @@ document.getElementById("onlyThis").addEventListener("click",
         var newName = document.getElementById("name-d70e").value.trim();
         if (newName.length == 0)
             alert("Center Name cannot be empty");
+        else if (newName.includes("#") || newName.includes("$") || newName.includes("[") || newName.includes("]") || newName.includes("."))
+            alert("Name cant include the following characters: '#', '$', '[', ']', '.'");
+        else if (centreList2.includes(newName.toUpperCase()))
+            alert("A center of same name already exists.");
         else if (oldName !== newName) {
             centreList[centreList.indexOf(oldName)] = newName;
             database.ref(email + "/CentreList").set(centreList);
@@ -143,7 +149,9 @@ function updateData() {
     var error = document.getElementById("error2");
     if (!selected)
         error.innerHTML = "Please search a center with its respective ID";
-    else if (centreList.includes(value))
+    else if (value.includes("#") || value.includes("$") || value.includes("[") || value.includes("]") || value.includes("."))
+        error.innerHTML = "Name cant include the following characters: '#', '$', '[', ']', '.'";
+    else if (centreList2.includes(value.toUpperCase()))
         error.innerHTML = "A center of same name already exists.";
     else {
         database.ref(email + "/CentreList/" + selectedID).set(value);
@@ -168,7 +176,7 @@ function removeData() {
     if (!selected)
         error.innerHTML = "Please search a center with its respective ID";
     else if (selectedID < 0 || selectedID >= centreList.length)
-        error.innerHTML = "Invalie ID";
+        error.innerHTML = "Invalid ID";
     else {
         if (centreList[selectedID] == oldName) {
             alert("You cannot delete the active center, please change the active center then try again!");
