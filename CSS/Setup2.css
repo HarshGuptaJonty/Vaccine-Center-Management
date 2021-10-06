@@ -119,3 +119,7 @@
 .u-dialog-block {
     position: absolute;
 }
+
+body {
+    background-color: rgb(216, 226, 220) !important;
+}
