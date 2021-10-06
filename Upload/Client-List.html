@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content="Vaccine">
+  <meta name="description" content="Modern way to makage a vaccination center, manage multiple centers at once.">
+  <meta name="page_type" content="np-template-header-footer-from-plugin">
+  <title>Client List</title>
+  <link rel="stylesheet" href="Setup.css" media="screen">
+  <link rel="stylesheet" href="Client-List.css" media="screen">
+  <link rel="stylesheet" href="Setup2.css">
+  <link rel="shortcut icon" href="fav_icon.svg" type="image/x-icon">
+  <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="Setup.js" defer=""></script>
+  <link id="u-theme-google-font" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+  <link id="u-page-google-font" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+
+  <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Vaccination Center Management",
+		"logo": "logo.svg"
+}</script>
+  <meta name="theme-color" content="#478ac9">
+  <meta property="og:title" content="Client List">
+  <meta property="og:description" content="Modern way to makage a vaccination center, manage multiple centers at once.">
+  <meta property="og:type" content="website">
+</head>
+
+<body class="u-body u-overlap" >
+  <div id="loader"></div>
+  <div id="fader"></div>
+  <header class="u-clearfix u-header" id="sec-98e7">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <a href="Dashboard.html" class="u-align-right-xs u-image u-logo u-image-1" title="Dashboard">
+        <img src="logo.svg" class="u-logo-image u-logo-image-1">
+      </a>
+      <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1" data-responsive-from="XL">
+        <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 500;">
+          <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+            href="#" style="height: 24px; color: rgb(71, 138, 201) !important;">
+            <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 124 124">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-01a1"></use>
+            </svg>
+            <svg class="u-svg-content" viewBox="0 0 124 124" x="0px" y="0px" id="svg-01a1"
+              style="enable-background:new 0 0 124 124;">
+              <g>
+                <path d="M112,6H12C5.4,6,0,11.4,0,18s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,6,112,6z"></path>
+                <path
+                  d="M112,50H12C5.4,50,0,55.4,0,62c0,6.6,5.4,12,12,12h100c6.6,0,12-5.4,12-12C124,55.4,118.6,50,112,50z">
+                </path>
+                <path d="M112,94H12c-6.6,0-12,5.4-12,12s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,94,112,94z"></path>
+              </g>
+            </svg>
+          </a>
+        </div>
+        <div class="u-custom-menu u-nav-container">
+          <ul class="u-nav u-spacing-2 u-unstyled u-nav-1">
+            <li class="u-nav-item"><a
+                class="u-active-grey-5 u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90"
+                href="Homepage.html" style="padding: 10px 20px;">Homepage</a>
+            </li>
+            <li class="u-nav-item"><a
+                class="u-active-grey-5 u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90"
+                href="Dashboard.html" style="padding: 10px 20px;">Dashboard</a>
+            </li>
+            <li class="u-nav-item"><a
+                class="u-active-grey-5 u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90"
+                href="Client-Homepage.html" style="padding: 10px 20px;">Client Homepage</a>
+            </li>
+            <li class="u-nav-item"><a
+                class="u-active-grey-5 u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90"
+                href="Client-List.html" style="padding: 10px 20px;">Client List</a>
+            </li>
+            <li class="u-nav-item"><a
+                class="u-active-grey-5 u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90"
+                href="Vaccine-Homepage.html" style="padding: 10px 20px;">Vaccine Homepage</a>
+            </li>
+            <li class="u-nav-item"><a
+                class="u-active-grey-5 u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90"
+                href="Vaccine-List.html"  style="padding: 10px 20px;">Vaccine List</a>
+            </li>
+          </ul>
+        </div>
+        <div class="u-custom-menu u-nav-container-collapse">
+          <div
+            class="u-container-style u-inner-container-layout u-opacity u-opacity-95 u-palette-1-light-2 u-sidenav u-sidenav-1"
+            data-offcanvas-width="353.75">
+            <div class="u-sidenav-overflow">
+              <div class="u-menu-close"></div>
+              <ul
+                class="u-align-center u-custom-font u-font-montserrat u-nav u-popupmenu-items u-spacing-10 u-text-hover-grey-70 u-unstyled u-nav-2">
+                <!-- <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Homepage.html"
+                    style="padding: 10px 20px;">Homepage</a>
+                </li> -->
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Select-Centre.html"
+                  style="padding: 10px 20px;">Change Center</a>
+              </li>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Dashboard.html"
+                    style="padding: 10px 20px;">Dashboard</a>
+                </li>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Client-Homepage.html"
+                    style="padding: 10px 20px;">Client Section</a>
+                </li>
+                <!-- <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Client-List.html"
+                    style="padding: 10px 20px;">Client List</a>
+                </li> -->
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Vaccine-Homepage.html"
+                    style="padding: 10px 20px;">Vaccine Section</a>
+                </li>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Vaccine-List.html" 
+                    style="padding: 10px 20px;">Vaccine List</a>
+                </li>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Setting.html" 
+                  style="padding: 10px 20px;">Setting</a>
+                </li>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="AboutUs.html"
+                  style="padding: 10px 20px;">About Us</a>
+                </li>
+                <li class="u-nav-item">
+                  <a id="logouta" class="u-button-style u-nav-link" style="padding: 10px 20px; cursor: pointer;">Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+        </div>
+      </nav>
+      <form id="searchForm"
+        class="u-align-center-xs u-align-right-lg u-align-right-md u-align-right-sm u-align-right-xl u-border-1 u-border-grey-30 u-radius-10 u-search u-search-left u-white u-search-1">
+        <button class="u-search-button" id="searchIcon">
+          <span class="u-search-icon u-spacing-10">
+            <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 56.966 56.966">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-829b"></use>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+              id="svg-829b" x="0px" y="0px" viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
+              xml:space="preserve" class="u-svg-content">
+              <path
+                d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z">
+              </path>
+            </svg>
+          </span>
+        </button>
+        <input class="u-search-input" id="searchText" placeholder="Search Client" autocomplete="off">
+      </form>
+    </div>
+  </header>
+  <section class="u-align-center u-clearfix u-gradient u-section-1" id="carousel_f73c">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <h2 class="u-align-center u-custom-font u-font-montserrat u-text u-text-1">Client List</h2>
+      <div class="u-expanded-width u-table u-table-responsive u-table-1">
+        <button class="myButton" onclick="addButton()">Add New Client</button>
+        <button class="myButton" onclick="editButton()">Edit Client Details</button>
+        <button id="reok" class="myButton" onclick="removeButton()">Remove Client</button>
+        <a id="edit" class="u-border-none u-btn u-btn-round u-button-style u-dialog-link u-hover-palette-4-light-1 u-palette-4-light-2 u-radius-10 u-btn-1" href="#sec-8d31" style="display: none;">Edit</a>
+        <a id="addNewC" class="u-border-none u-btn u-btn-round u-button-style u-dialog-link u-hover-palette-4-light-1 u-palette-4-light-2 u-radius-10 u-btn-2" style="display: none;"
+                  href="#sec-963a">Remove</a>
+        <table class="u-table-entity">
+          <colgroup>
+            <col width="6%">
+            <col width="17%">
+            <col width="21%">
+            <col width="18%">
+            <col width="18%">
+            <col width="24%">
+          </colgroup>
+          <thead class="u-table-header u-table-header-1">
+            <tr style="height: 57px;">
+              <th
+                class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell t-head">
+                ID</th>
+              <th
+                class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell t-head">
+                Name</th>
+              <th
+                class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell t-head">
+                Phone</th>
+              <th
+                class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell t-head">
+                First Dose</th>
+              <th
+                class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell t-head">
+                Second Dose</th>
+              <th
+                class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-border-no-top u-table-cell t-head">
+                Vaccine<br></th>
+            </tr>
+          </thead>
+          <tbody id="clientTable" class="u-table-body u-table-body-1">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section
+    class="u-align-center u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-valign-top u-section-7"
+    id="sec-963a">
+    <div class="u-align-center u-container-style u-dialog u-radius-30 u-shape-round u-white u-dialog-1">
+      <div class="u-container-layout u-valign-middle u-container-layout-1">
+        <h2 class="u-text u-text-default u-text-1">Add New Client</h2>
+        <div class="u-expanded-width-xs u-form u-form-1">
+          <form action="#" method="POST" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form"
+            style="padding: 0px;" source="custom" name="form">
+            <div class="u-form-group u-form-name u-form-group-1">
+              <center><small><span id="error1" style="color: red;"></span></small><br></center>
+              <label for="name-5dbe" class="u-label u-text-grey-30 u-label-1">Enter client name</label>
+              <input type="text" id="name-5dbe" name="name" autofocus autocomplete="off"
+                class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required=""
+                autofocus="autofocus">
+            </div>
+            <div class="u-form-group u-form-phone u-form-group-2">
+              <label for="phone-61be" class="u-label u-text-grey-30 u-label-2">Enter client phone number</label>
+              <input type="number" autocomplete="off"
+                id="phone-61be" name="phone"
+                class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required="">
+            </div>
+            <div class="u-form-group u-form-select u-form-group-3">
+              <label for="select-45ff" class="u-label u-text-grey-30 u-label-3">Select the vaccine</label><br>
+              <div class="u-form-select-wrapper"  style="width: 65%; display: inline-block;">
+                <select id="select-45ff" name="select"
+                  class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required="required">
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret">
+                  <path fill="currentColor" d="M4 8L0 4h8z"></path>
+                </svg>
+              </div>
+              <button type="button" class="u-black u-radius-10 u-btn-round myButton2" onclick="refreshVaccineSelect()"
+              style="margin: 0px; margin-left: 10px; width: 30%; padding: 10px; cursor: pointer;">Refresh</button>
+            </div>
+            <div class="u-align-center u-form-group u-form-submit u-form-group-4">
+              <a href="#"
+                class="u-black u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-grey-75 u-radius-10 u-btn-1">Submit</a>
+              <input onclick="uploadClient()" type="submit" value="submit" class="u-form-control-hidden">
+            </div>
+          </form>
+        </div>
+      </div><button id="crossButton1" class="u-dialog-close-button u-icon u-text-grey-50 u-icon-1"><svg class="u-svg-link"
+          preserveAspectRatio="xMidYMin slice" viewBox="0 0 413.348 413.348" >
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-5801"></use>
+        </svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+          xml:space="preserve" class="u-svg-content" viewBox="0 0 413.348 413.348" id="svg-5801">
+          <path
+            d="m413.348 24.354-24.354-24.354-182.32 182.32-182.32-182.32-24.354 24.354 182.32 182.32-182.32 182.32 24.354 24.354 182.32-182.32 182.32 182.32 24.354-24.354-182.32-182.32z">
+          </path>
+        </svg></button>
+    </div>
+  </section>
+  <section
+    class="u-align-center u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-valign-top u-section-7"
+    id="sec-8d31">
+    <div class="u-align-center u-container-style u-dialog u-radius-30 u-shape-round u-white u-dialog-1">
+      <div class="u-container-layout u-valign-middle u-container-layout-1">
+        <h2 class="u-text u-text-default u-text-1">Client Data</h2>
+        <center><small><span id="error" style="color: red;"></span></small><br></center>
+        <div class="u-expanded-width-xs u-form u-form-1">
+            <div class="u-form-group u-form-group-1">
+              <form id="searchForm1">
+              <label for="text-3d69" class="u-label u-text-grey-30 u-label-1">Please enter the client ID</label><br>
+              <input type="number" autocomplete="off" id="text-3d69" name="text" style="display: inline-block; width: 65%;"
+                class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required>
+              <button class="u-black u-radius-10 u-btn-round u-btn-submit u-button-style u-btn-1" onclick="searchForEdit()"
+              style="margin: 0px; margin-left: 10px; width: 30%; padding: 10px; cursor: pointer;">Search</button></form>
+            </div>
+            <div class="u-form-group u-form-name u-form-group-2">
+              <label for="name-22b9" class="u-label u-text-grey-30 u-label-2">Client name</label><br>
+              <input type="text" id="name-22b9" name="name" autocomplete="off"
+                class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required=""
+                autofocus="autofocus">
+            </div>
+            <div class="u-form-group u-form-phone u-form-group-3">
+              <label for="phone-0eea" class="u-label u-text-grey-30 u-label-3" readonly>Client phone</label><br>
+              <input type="number" autocomplete="off"
+                id="phone-0eea" name="phone"
+                class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required="">
+            </div>
+            <div class="u-form-date u-form-group u-form-group-4">
+              <label for="date-f864" class="u-label u-text-grey-30 u-label-4">First dose date</label>
+              <label for="date-2b92" class="u-label u-text-grey-30 u-label-5" style="margin-left: 90px;">Second dose date</label><br>
+              <input type="date" placeholder="DD/MM/YYYY" id="date-f864" name="date" style="display: inline; width: 49%;"min={new Date().toISOString().split('T')[0]}
+              class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required="">
+              <input type="date" placeholder="DD/MM/YYYY" id="date-2b92" name="date-1" style="display: inline; width: 49%;"
+                class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required="">
+            </div>
+            <div class="u-form-group u-form-select u-form-group-6">
+              <label for="select-9c1c" class="u-label u-text-grey-30 u-label-6">Select Vaccine</label><br>
+              <div class="u-form-select-wrapper">
+                <select id="select-9c1c" name="select"
+                  class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret">
+                  <path fill="currentColor" d="M4 8L0 4h8z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="u-align-right u-form-group u-form-submit u-form-group-7">
+              <a href="#" onclick="updateButton()" class="u-black u-btn u-btn-round u-btn-submit u-button-style u-radius-10 u-btn-1" style="width: 49%; padding: 10px;">Update Details</a>
+              <a href="#" onclick="deleteButton()" class="u-black u-btn u-btn-round u-btn-submit u-button-style u-radius-10 u-btn-1" style="width: 49%; padding: 10px;">Remove Client</a>
+              <input type="submit" value="submit" class="u-form-control-hidden">
+            </div>
+        </div>
+      </div><button id="crossButton" class="u-dialog-close-button u-icon u-text-grey-50 u-icon-1"><svg class="u-svg-link"
+          preserveAspectRatio="xMidYMin slice" viewBox="0 0 413.348 413.348">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-5801"></use>
+        </svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+          xml:space="preserve" class="u-svg-content" viewBox="0 0 413.348 413.348" id="svg-5801">
+          <path
+            d="m413.348 24.354-24.354-24.354-182.32 182.32-182.32-182.32-24.354 24.354 182.32 182.32-182.32 182.32 24.354 24.354 182.32-182.32 182.32 182.32 24.354-24.354-182.32-182.32z">
+          </path>
+        </svg></button>
+    </div>
+  </section>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database-compat.js"></script>
+  <script src="Firebase.js"></script>
+  <script src="Client-List.js"></script>
+  <script src="Setup2.js"></script>
+</body>
+
+</html>
