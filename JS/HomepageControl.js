@@ -90,3 +90,8 @@ document.getElementById("togglePassword2").addEventListener("click",function(eve
     password.setAttribute("type", type);
     this.classList.toggle('fa-eye-slash');
 });
+function googleSign(){
+    const GoogleAuth = new firebase.auth.GoogleAuthProvider();
+    // firebase.auth().signInWithPopup(GoogleAuth);
+    firebase.auth().signInWithRedirect(GoogleAuth);
+}
