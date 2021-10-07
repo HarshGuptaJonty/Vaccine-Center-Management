@@ -11,7 +11,7 @@ function readyForSignUp() {
 auth.onAuthStateChanged((user) => {
     if (user)
         location.replace("HTML/Select-Centre.html");
-    else{
+    else {
         console.log("No user found");
         showPage();
     }
@@ -39,16 +39,24 @@ function loginUser() {
 }
 function signupUser() {
     readyForSignUp();
-    auth.createUserWithEmailAndPassword(email, password)
-        .then(() => {
-            document.getElementById("closeButton2").click();
-            document.getElementById("error2").innerHTML = "";
-            // location.replace("Dashboard.html");
-            location.replace("Select-Centre.html");
-        })
-        .catch((error) => {
-            document.getElementById("error2").innerHTML = error.message;
-        });
+    if (email == "") {
+        document.getElementById("error2").innerHTML = "Please enter email";
+    } else if (password == "") {
+        document.getElementById("error2").innerHTML = "Please enter password";
+    } else {
+        document.getElementById("error2").innerHTML = "";
+        console.log(email, password);
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(() => {
+                document.getElementById("closeButton2").click();
+                document.getElementById("error2").innerHTML = "";
+                // location.replace("Dashboard.html");
+                location.replace("Select-Centre.html");
+            })
+            .catch((error) => {
+                document.getElementById("error2").innerHTML = error.message;
+            });
+    }
 }
 function forgetPassword() {
     readyForLogin();
@@ -78,19 +86,19 @@ document.getElementById("text-47c2").addEventListener("keyup", function (event) 
     if (event.keyCode === 13)
         signupUser();
 });
-document.getElementById("togglePassword1").addEventListener("click",function(event){
-    var password =document.getElementById("text-47c2");
-    const type=password.getAttribute("type") === "password" ? "text" : "password";
+document.getElementById("togglePassword1").addEventListener("click", function (event) {
+    var password = document.getElementById("text-47c2");
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
     password.setAttribute("type", type);
     this.classList.toggle('fa-eye-slash');
 });
-document.getElementById("togglePassword2").addEventListener("click",function(event){
-    var password =document.getElementById("text-d7f9");
-    const type=password.getAttribute("type") === "password" ? "text" : "password";
+document.getElementById("togglePassword2").addEventListener("click", function (event) {
+    var password = document.getElementById("text-d7f9");
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
     password.setAttribute("type", type);
     this.classList.toggle('fa-eye-slash');
 });
-function googleSign(){
+function googleSign() {
     const GoogleAuth = new firebase.auth.GoogleAuthProvider();
     // firebase.auth().signInWithPopup(GoogleAuth);
     firebase.auth().signInWithRedirect(GoogleAuth);

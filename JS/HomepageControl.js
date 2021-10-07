@@ -39,16 +39,24 @@ function loginUser() {
 }
 function signupUser() {
     readyForSignUp();
-    auth.createUserWithEmailAndPassword(email, password)
-        .then(() => {
-            document.getElementById("closeButton2").click();
-            document.getElementById("error2").innerHTML = "";
-            // location.replace("Dashboard.html");
-            location.replace("Select-Centre.html");
-        })
-        .catch((error) => {
-            document.getElementById("error2").innerHTML = error.message;
-        });
+    if (email == "") {
+        document.getElementById("error2").innerHTML = "Please enter email";
+    } else if (password == "") {
+        document.getElementById("error2").innerHTML = "Please enter password";
+    } else {
+        document.getElementById("error2").innerHTML = "";
+        console.log(email, password);
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(() => {
+                document.getElementById("closeButton2").click();
+                document.getElementById("error2").innerHTML = "";
+                // location.replace("Dashboard.html");
+                location.replace("Select-Centre.html");
+            })
+            .catch((error) => {
+                document.getElementById("error2").innerHTML = error.message;
+            });
+    }
 }
 function forgetPassword() {
     readyForLogin();
