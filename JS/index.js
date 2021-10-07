@@ -33,7 +33,7 @@ function loginUser() {
                 location.replace("Select-Centre.html");
             })
             .catch((error) => {
-                document.getElementById("error").innerHTML = error.message;
+                document.getElementById("error").innerHTML = error.message.replace("Firebase:", "Error,");
             });
     }
 }
@@ -54,7 +54,7 @@ function signupUser() {
                 location.replace("Select-Centre.html");
             })
             .catch((error) => {
-                document.getElementById("error2").innerHTML = error.message;
+                document.getElementById("error2").innerHTML = error.message.replace("Firebase:", "Error,");
             });
     }
 }
