@@ -8,14 +8,14 @@
 	<meta name="description" content="Helps user to manage their vaccine centers">
 	<meta name="page_type" content="np-template-header-footer-from-plugin">
 	<title>Homepage</title>
-	<link rel="stylesheet" href="../CSS/Setup.css" media="screen">
-	<link rel="stylesheet" href="../CSS/Homepage.css" media="screen">
-	<link rel="stylesheet" href="../CSS/Setup2.css">
-	<link rel="shortcut icon" href="../Image/fav_icon.svg" type="image/x-icon">
+	<link rel="stylesheet" href="CSS/Setup.css" media="screen">
+	<link rel="stylesheet" href="CSS/Homepage.css" media="screen">
+	<link rel="stylesheet" href="CSS/Setup2.css">
+	<link rel="shortcut icon" href="Image/fav_icon.svg" type="image/x-icon">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css" rel="stylesheet" />
-	<script class="u-script" type="text/javascript" src="../JS/jquery.js" defer=""></script>
-	<script class="u-script" type="text/javascript" src="../JS/Setup.js" defer=""></script>
+	<script class="u-script" type="text/javascript" src="JS/jquery.js" defer=""></script>
+	<script class="u-script" type="text/javascript" src="JS/Setup.js" defer=""></script>
 	<link id="u-theme-google-font" rel="stylesheet"
 		href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
 	<link id="u-page-google-font" rel="stylesheet"
@@ -118,7 +118,7 @@
 					</form>
 					<div class="u-align-center u-form-group u-form-group-3">
 						<button class="googleButton u-btn-round u-button-style u-radius-10 u-btn-1" style="padding: 0px;"
-							onclick="googleSign()"><img class="googleImage" src="../Image/google.png" alt="">Sign in with Google</button>
+							onclick="googleSign()"><img class="googleImage" src="Image/google.png" alt="">Sign in with Google</button>
 					</div>
 				</div>
 			</div>
@@ -166,7 +166,7 @@
 					</form>
 						<div class="u-align-center u-form-group u-form-group-4">
 							<button class="googleButton u-btn-round u-button-style u-radius-10 u-btn-1"
-								onclick="googleSign()"><img class="googleImage" src="../Image/google.png" alt="">Sign up with Google</button>
+								onclick="googleSign()"><img class="googleImage" src="Image/google.png" alt="">Sign up with Google</button>
 						</div>
 				</div>
 			</div>
@@ -185,9 +185,9 @@
 	<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database-compat.js"></script>
-	<script src="../JS/Firebase.js"></script>
-	<script src="../JS/index.js"></script>
-	<script src="../JS/Setup2.js"></script>
+	<script src="JS/Firebase.js"></script>
+	<script src="JS/index.js"></script>
+	<script src="JS/Setup2.js"></script>
 	<style>
 		.googleImage{
 			margin-right: 10px;
@@ -197,6 +197,9 @@
 			border-radius: 10px;
 		}
 		.googleButton {
+			padding-left: 10px !important;
+			padding-right: 10px !important;
+			white-space: nowrap;
 			margin-top: 10px;
 			height: 45px;
 			color: white;
