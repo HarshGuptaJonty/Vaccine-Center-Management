@@ -11,7 +11,7 @@ function readyForSignUp() {
 auth.onAuthStateChanged((user) => {
     if (user)
         location.replace("Select-Centre.html");
-    else{
+    else {
         console.log("No user found");
         showPage();
     }
@@ -33,7 +33,7 @@ function loginUser() {
                 location.replace("Select-Centre.html");
             })
             .catch((error) => {
-                document.getElementById("error").innerHTML = error.message.replace("Firebase:", "Error,");
+                document.getElementById("error").innerHTML = error.message;
             });
     }
 }
@@ -54,7 +54,7 @@ function signupUser() {
                 location.replace("Select-Centre.html");
             })
             .catch((error) => {
-                document.getElementById("error2").innerHTML = error.message.replace("Firebase:", "Error,");
+                document.getElementById("error2").innerHTML = error.message;
             });
     }
 }
@@ -86,20 +86,23 @@ document.getElementById("text-47c2").addEventListener("keyup", function (event) 
     if (event.keyCode === 13)
         signupUser();
 });
-document.getElementById("togglePassword1").addEventListener("click",function(event){
-    var password =document.getElementById("text-47c2");
-    const type=password.getAttribute("type") === "password" ? "text" : "password";
+document.getElementById("togglePassword1").addEventListener("click", function (event) {
+    var password = document.getElementById("text-47c2");
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
     password.setAttribute("type", type);
     this.classList.toggle('fa-eye-slash');
 });
-document.getElementById("togglePassword2").addEventListener("click",function(event){
-    var password =document.getElementById("text-d7f9");
-    const type=password.getAttribute("type") === "password" ? "text" : "password";
+document.getElementById("togglePassword2").addEventListener("click", function (event) {
+    var password = document.getElementById("text-d7f9");
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
     password.setAttribute("type", type);
     this.classList.toggle('fa-eye-slash');
 });
-function googleSign(){
+function googleSign() {
     const GoogleAuth = new firebase.auth.GoogleAuthProvider();
+    GoogleAuth.setCustomParameters({
+        prompt: 'select_account'
+    });
     // firebase.auth().signInWithPopup(GoogleAuth);
     firebase.auth().signInWithRedirect(GoogleAuth);
 }

@@ -100,6 +100,9 @@ document.getElementById("togglePassword2").addEventListener("click", function (e
 });
 function googleSign() {
     const GoogleAuth = new firebase.auth.GoogleAuthProvider();
+    GoogleAuth.setCustomParameters({
+        prompt: 'select_account'
+    });
     // firebase.auth().signInWithPopup(GoogleAuth);
     firebase.auth().signInWithRedirect(GoogleAuth);
 }
