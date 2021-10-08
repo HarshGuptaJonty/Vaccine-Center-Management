@@ -30,7 +30,7 @@ function loginUser() {
                 document.getElementById("closeButton").click();
                 document.getElementById("error").innerHTML = "";
                 // location.replace("Dashboard.html");
-                location.replace("Select-Centre.html");
+                location.replace("HTML/Select-Centre.html");
             })
             .catch((error) => {
                 document.getElementById("error").innerHTML = error.message.replace("Firebase:", "Error,");
@@ -51,7 +51,7 @@ function signupUser() {
                 document.getElementById("closeButton2").click();
                 document.getElementById("error2").innerHTML = "";
                 // location.replace("Dashboard.html");
-                location.replace("Select-Centre.html");
+                location.replace("HTML/Select-Centre.html");
             })
             .catch((error) => {
                 document.getElementById("error2").innerHTML = error.message.replace("Firebase:", "Error,");
