@@ -99,16 +99,16 @@ body {
 }
 @media (max-width: 575px) {
   .u-header .u-search-1{
-    margin-top: 13px;
+    margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
     width: 80%;
   }
   .u-section-1 .u-text-1{
-    font-size: 1.5rem;
-    margin-top: 22px;
+    font-size: 1.8rem;
+    margin-top: 24px;
     margin-right: 20px;
-    margin-bottom: 52px;
+    margin-bottom: 48px;
     text-align: right;
     width: fit-content;
   }

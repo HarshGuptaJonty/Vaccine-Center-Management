@@ -10,7 +10,7 @@ body {
 
 .u-section-1 .u-text-1 {
   font-weight: 400;
-  font-size: 2.25rem;
+  font-size: 1.8rem;
   margin: 20px auto 0;
 }
 
@@ -67,7 +67,7 @@ body {
     margin-top: 10px;
   }
   .u-section-1 .u-text-1{
-    margin-top: 65px;
+    margin-top: 23px;
   }
 }
 
@@ -306,7 +306,7 @@ body {
     width: 540px;
   }
   .u-section-1 .u-text-1{
-    margin-left: auto;
+    margin-left: 188px;
   }
 
   .u-section-6 .u-container-layout-1 {
@@ -318,7 +318,7 @@ body {
 
 @media (max-width: 500px) {
   .u-header .u-search-1{
-    margin-top: 62px;
+    margin-top: 17px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
