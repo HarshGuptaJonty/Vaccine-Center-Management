@@ -19,6 +19,11 @@ var vaccinearr = [];
 async function updateList() {
     vaccinearr = [];
     $("#select-9c1c").empty();
+    $("#select-9c1d").empty();
+    let option2 = document.createElement("option");
+    option2.text = "All vaccine";
+    option2.value = "All vaccine";
+    select20.add(option2);
     await database.ref(email + "/" + activeCentre + "/VaccineList").once("value", function (allrecord) {
         allrecord.forEach(function (currentrecord) {
             var vname = currentrecord.val().Name;
@@ -67,7 +72,7 @@ async function getAllData() {
             var first = currentrecord.val().First;
             var second = currentrecord.val().Second;
             var vaccine = currentrecord.val().Vaccine;
-            var client = { Name: nname, Phone: phone, First: first, Second: second, Vaccine: vaccine, ID: (ID+1) };
+            var client = { Name: nname, Phone: phone, First: first, Second: second, Vaccine: vaccine, ID: (ID + 1) };
             clientarr.push(client);
             addItemsToTable(nname, phone, first, second, vaccine, ++ID);
         });
