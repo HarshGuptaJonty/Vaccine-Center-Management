@@ -67,7 +67,7 @@ async function getAllData() {
             var first = currentrecord.val().First;
             var second = currentrecord.val().Second;
             var vaccine = currentrecord.val().Vaccine;
-            var client = { Name: nname, Phone: phone, First: first, Second: second, Vaccine: vaccine, ID: ID };
+            var client = { Name: nname, Phone: phone, First: first, Second: second, Vaccine: vaccine, ID: (ID+1) };
             clientarr.push(client);
             addItemsToTable(nname, phone, first, second, vaccine, ++ID);
         });
