@@ -270,3 +270,17 @@ body {
 .myButton:hover {
   border:1px solid black;
 }
+.myButton3{
+  border-style: none;
+  text-transform: uppercase;
+  background-color: black;
+  color: white;
+  letter-spacing: 1px;
+  min-height: 50px;
+  min-width: 49%;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}

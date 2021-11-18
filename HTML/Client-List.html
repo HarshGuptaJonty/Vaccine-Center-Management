@@ -163,7 +163,9 @@
         <button class="myButton" onclick="addButton()">Add New Client</button>
         <button class="myButton" onclick="editButton()">Edit Client Details</button>
         <button id="reok" class="myButton" onclick="removeButton()">Remove Client</button>
+        <button class="myButton" onclick="sortButton()">Sort</button>
         <a id="edit" class="u-border-none u-btn u-btn-round u-button-style u-dialog-link u-hover-palette-4-light-1 u-palette-4-light-2 u-radius-10 u-btn-1" href="#sec-8d31" style="display: none;">Edit</a>
+        <a id="sort" class="u-border-none u-btn u-btn-round u-button-style u-dialog-link u-hover-palette-4-light-1 u-palette-4-light-2 u-radius-10 u-btn-1" href="#sec-8d32" style="display: none;">Edit</a>
         <a id="addNewC" class="u-border-none u-btn u-btn-round u-button-style u-dialog-link u-hover-palette-4-light-1 u-palette-4-light-2 u-radius-10 u-btn-2" style="display: none;"
                   href="#sec-963a">Remove</a>
         <table class="u-table-entity">
@@ -236,7 +238,7 @@
                 </svg>
               </div>
               <button type="button" class="u-black u-radius-10 u-btn-round myButton2" onclick="refreshVaccineSelect()"
-              style="margin: 0px; margin-left: 10px; width: 30%; padding: 10px; cursor: pointer;">Refresh</button>
+              style="margin: 0px; margin-left: 10px; width: 29%; padding: 10px; cursor: pointer;">Refresh</button>
             </div>
             <div class="u-align-center u-form-group u-form-submit u-form-group-4">
               <a href="#"
@@ -270,7 +272,7 @@
               <input type="number" autocomplete="off" id="text-3d69" name="text" style="display: inline-block; width: 65%;"
                 class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required>
               <button class="u-black u-radius-10 u-btn-round u-btn-submit u-button-style u-btn-1" onclick="searchForEdit()"
-              style="margin: 0px; margin-left: 10px; width: 30%; padding: 10px; cursor: pointer;">Search</button></form>
+              style="margin: 0px; margin-left: 10px; width: 29%; padding: 10px; cursor: pointer;">Search</button></form>
             </div>
             <div class="u-form-group u-form-name u-form-group-2">
               <label for="name-22b9" class="u-label u-text-grey-30 u-label-2">Client name</label><br>
@@ -310,6 +312,41 @@
             </div>
         </div>
       </div><button id="crossButton" class="u-dialog-close-button u-icon u-text-grey-50 u-icon-1"><svg class="u-svg-link"
+          preserveAspectRatio="xMidYMin slice" viewBox="0 0 413.348 413.348">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-5801"></use>
+        </svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+          xml:space="preserve" class="u-svg-content" viewBox="0 0 413.348 413.348" id="svg-5801">
+          <path
+            d="m413.348 24.354-24.354-24.354-182.32 182.32-182.32-182.32-24.354 24.354 182.32 182.32-182.32 182.32 24.354 24.354 182.32-182.32 182.32 182.32 24.354-24.354-182.32-182.32z">
+          </path>
+        </svg></button>
+    </div>
+  </section>
+  <section
+    class="u-align-center u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-valign-top u-section-7"
+    id="sec-8d32">
+    <div class="u-align-center u-container-style u-dialog u-radius-30 u-shape-round u-white u-dialog-1">
+      <div class="u-container-layout u-valign-middle u-container-layout-1">
+        <h2 class="u-text u-text-default u-text-1">Sort Client Data</h2>
+        <center><small><span id="error2" style="color: red;">Select or deselect to make changes</span></small><br></center>
+        <div class="u-expanded-width-xs u-form u-form-1" style="width: 410px; margin-top: 0px;">
+          <button id="alphabet" class="myButton3" onclick="alphabetSort()">A - Z</button>
+          <button id="noVaccine" class="myButton3" onclick="noVaccineSort()">No Dose</button>
+          <button id="firstVaccine" class="myButton3" onclick="firstVaccineSort()">First Dose</button>
+          <button id="doubleVaccine" class="myButton3" style="margin-bottom: 10px;" onclick="doubleVaccineSort()">Second Dose</button>
+          <br><label for="select-9c1d" class="u-label u-text-grey-30 u-label-6"px;">Sort by vaccine details</label><br>
+          <div class="u-form-select-wrapper">
+            <select id="select-9c1d" name="select"
+              class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10 u-white" required>
+              <option value="All vaccine">All vaccine</option>
+            </select>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret">
+              <path fill="currentColor" d="M4 8L0 4h8z"></path>
+            </svg>
+          </div>
+          <button class="myButton3" onclick="applySort()" style="width: 100%;">Apply Changes</button>
+        </div>
+      </div><button id="crossButton2" class="u-dialog-close-button u-icon u-text-grey-50 u-icon-1"><svg class="u-svg-link"
           preserveAspectRatio="xMidYMin slice" viewBox="0 0 413.348 413.348">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-5801"></use>
         </svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"

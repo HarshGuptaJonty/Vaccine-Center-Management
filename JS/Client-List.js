@@ -1,5 +1,6 @@
 var email;
 var select = document.getElementById("select-9c1c");
+var select20 = document.getElementById("select-9c1d");
 var activeCentre;
 var searched = false;
 firebaseApp.auth().onAuthStateChanged((user) => {
@@ -27,6 +28,10 @@ async function updateList() {
             option.text = vname;
             option.value = vname;
             select.add(option);
+            let option2 = document.createElement("option");
+            option2.text = vname;
+            option2.value = vname;
+            select20.add(option2);
         });
         showPage();
     });
@@ -62,7 +67,7 @@ async function getAllData() {
             var first = currentrecord.val().First;
             var second = currentrecord.val().Second;
             var vaccine = currentrecord.val().Vaccine;
-            var client = { Name: nname, Phone: phone, First: first, Second: second, Vaccine: vaccine };
+            var client = { Name: nname, Phone: phone, First: first, Second: second, Vaccine: vaccine, ID: ID };
             clientarr.push(client);
             addItemsToTable(nname, phone, first, second, vaccine, ++ID);
         });
@@ -121,6 +126,115 @@ function removeButton() {
     document.getElementById("select-9c1c").value = "";
     // await updateList();
     document.getElementById("edit").click();
+}
+var abc = 0, nov = 0, fv = 0, dv = 0;
+function sortButton() {
+    document.getElementById("sort").click();
+}
+function alphabetSort() {
+    if (abc == 0) {
+        document.getElementById("alphabet").style.backgroundColor = "#636161";
+        abc = 1;
+    }
+    else {
+        document.getElementById("alphabet").style.backgroundColor = "black";
+        abc = 0;
+    }
+}
+function noVaccineSort() {
+    if (nov == 0) {
+        document.getElementById("noVaccine").style.backgroundColor = "#636161";
+        nov = 1;
+    }
+    else {
+        document.getElementById("noVaccine").style.backgroundColor = "black";
+        nov = 0;
+    }
+}
+function firstVaccineSort() {
+    if (fv == 0) {
+        document.getElementById("firstVaccine").style.backgroundColor = "#636161";
+        fv = 1;
+    }
+    else {
+        document.getElementById("firstVaccine").style.backgroundColor = "black";
+        fv = 0;
+    }
+}
+function doubleVaccineSort() {
+    if (dv == 0) {
+        document.getElementById("doubleVaccine").style.backgroundColor = "#636161";
+        dv = 1;
+    }
+    else {
+        document.getElementById("doubleVaccine").style.backgroundColor = "black";
+        dv = 0;
+    }
+}
+function applySort() {
+    document.getElementById("crossButton2").click();
+    $("#clientTable tr").remove();
+    var sortedclientarr = [];
+    var selVac = document.getElementById("select-9c1d").value;
+    if (abc == 0 && nov == 0 && fv == 0 && dv == 0 && selVac === "All vaccine")
+        sortedclientarr = clientarr;
+    if (nov == 1) {
+        for (i = 0; i < clientarr.length; ++i) {
+            var clientobject = clientarr[i];
+            if (clientobject.First == "No Data")
+                sortedclientarr.push(clientobject);
+        }
+    }
+    if (fv == 1) {
+        for (i = 0; i < clientarr.length; ++i) {
+            var clientobject = clientarr[i];
+            if (clientobject.First != "No Data" && clientobject.Second == "No Data")
+                sortedclientarr.push(clientobject);
+        }
+    }
+    if (dv == 1) {
+        for (i = 0; i < clientarr.length; ++i) {
+            var clientobject = clientarr[i];
+            if (clientobject.First != "No Data" && clientobject.Second != "No Data")
+                sortedclientarr.push(clientobject);
+        }
+    }
+    if (abc == 1) {
+        var abcSorted = [];
+        if (nov == 1 || fv == 1 || dv == 1) {
+            var abcarr = [];
+            for (i = 0; i < sortedclientarr.length; ++i)
+                abcarr.push(sortedclientarr[i].Name);
+            abcarr.sort();
+            for (i = 0; i < abcarr.length; ++i)
+                for (j = 0; j < sortedclientarr.length; ++j)
+                    if (abcarr[i] === sortedclientarr[j].Name)
+                        abcSorted.push(sortedclientarr[j]);
+            sortedclientarr = abcSorted;
+        } else {
+            var abcarr = [];
+            for (i = 0; i < clientarr.length; ++i)
+                abcarr.push(clientarr[i].Name);
+            abcarr.sort();
+            for (i = 0; i < abcarr.length; ++i)
+                for (j = 0; j < clientarr.length; ++j)
+                    if (abcarr[i] === clientarr[j].Name)
+                        abcSorted.push(clientarr[j]);
+            sortedclientarr = abcSorted;
+        }
+    }
+    if (selVac != "All vaccine") {
+        if (abc == 0 && nov == 0 && fv == 0 && dv == 0)
+            sortedclientarr = clientarr;
+        var newarr = [];
+        for (i = 0; i < sortedclientarr.length; ++i)
+            if (sortedclientarr[i].Vaccine == selVac)
+                newarr.push(sortedclientarr[i]);
+        sortedclientarr = newarr;
+    }
+    for (i = 0; i < sortedclientarr.length; ++i)
+        addItemsToTable(sortedclientarr[i].Name, sortedclientarr[i].Phone, sortedclientarr[i].First,
+            sortedclientarr[i].Second, sortedclientarr[i].Vaccine, sortedclientarr[i].ID);
 }
 
 function updateButton() {
@@ -275,9 +389,6 @@ function searchInTable(text) {
         if (clientobject.Name.toLowerCase().indexOf(text.toLowerCase()) >= 0 || clientobject.Phone.indexOf(text) >= 0) {
             addItemsToTable(clientobject.Name, clientobject.Phone, clientobject.First, clientobject.Second, clientobject.Vaccine, (i + 1));
         }
-        // else {
-        //     // console.log("got: "+clientobject.Name+" searching for: "+text+" found: "+(clientobject.Name.indexOf(text)>=0));
-        // }
     }
 }
 function addButton() {
